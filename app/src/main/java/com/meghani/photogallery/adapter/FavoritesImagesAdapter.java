@@ -24,17 +24,14 @@ import com.bumptech.glide.request.target.Target;
 import com.meghani.photogallery.BuildConfig;
 import com.meghani.photogallery.R;
 import com.meghani.photogallery.databinding.SingleImageItemBinding;
-import com.meghani.photogallery.models.Image;
 import com.meghani.photogallery.util.Utils;
 
 import java.io.File;
-import java.util.List;
 
 import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 import static android.content.Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
-import static com.meghani.photogallery.util.Utils.ifImageExists;
 
-public class FavoritesImagesAdapter extends RecyclerView.Adapter<FavoritesImagesAdapter.FavoritesImagesAdapterVH>{
+public class FavoritesImagesAdapter extends RecyclerView.Adapter<FavoritesImagesAdapter.FavoritesImagesAdapterVH> {
     File[] imageList;
     int count;
 
@@ -96,15 +93,16 @@ public class FavoritesImagesAdapter extends RecyclerView.Adapter<FavoritesImages
     public class FavoritesImagesAdapterVH extends RecyclerView.ViewHolder {
 
         private SingleImageItemBinding binding;
+
         public FavoritesImagesAdapterVH(@NonNull SingleImageItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
 
             binding.getRoot().setOnClickListener(v -> {
-                Uri path= FileProvider.getUriForFile(v.getContext(), BuildConfig.APPLICATION_ID + ".fileprovider",imageList[getAbsoluteAdapterPosition()]);
+                Uri path = FileProvider.getUriForFile(v.getContext(), BuildConfig.APPLICATION_ID + ".fileprovider", imageList[getAbsoluteAdapterPosition()]);
 
-                Intent intent=new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(path,"image/*");
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(path, "image/*");
                 intent.setFlags(FLAG_GRANT_READ_URI_PERMISSION | FLAG_GRANT_WRITE_URI_PERMISSION); //must for reading data from directory
 
                 v.getContext().startActivity(intent);

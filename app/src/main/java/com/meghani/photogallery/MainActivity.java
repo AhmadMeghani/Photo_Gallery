@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH && !v.getText().toString().trim().equals("")) {
-                    if(!Navigation.findNavController(findViewById(R.id.fragment)).getCurrentDestination().getLabel().equals("fragment_search")) {
+                    if (!Navigation.findNavController(findViewById(R.id.fragment)).getCurrentDestination().getLabel().equals("fragment_search")) {
                         MainFragmentDirections.ActionMainFragmentToSearchFragment action =
                                 MainFragmentDirections.actionMainFragmentToSearchFragment();
                         action.setSearchQuery(v.getText().toString());
@@ -49,13 +49,6 @@ public class MainActivity extends AppCompatActivity {
                         searchFragment.initRecyclerviewAndAdapter(v.getText().toString());
                     }
                     binding.backBtn.setVisibility(View.VISIBLE);
-                   /* ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(
-                            0,
-                            LinearLayout.LayoutParams.WRAP_CONTENT
-                    );
-                    params.setMargins((int)getResources().getDimension(R.dimen._8sdp), (int)getResources().getDimension(R.dimen._19sdp),
-                            (int)getResources().getDimension(R.dimen._8sdp), 0);*/
-//                    binding.searchBar.setLayoutParams(params);
                     binding.searchBar.clearFocus();
                     hideSoftKeyboard(v);
                 }
@@ -69,18 +62,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(findViewById(R.id.fragment)).navigate(R.id.favoritesFragment);
-                /*if(Navigation.findNavController(findViewById(R.id.fragment)).getCurrentDestination().getLabel().equals("fragment_search")) {
-                    MainFragmentDirections.ActionMainFragmentToSearchFragment action =
-                            MainFragmentDirections.actionMainFragmentToSearchFragment();
-                    action.setSearchQuery(v.getText().toString());
-                    Navigation.findNavController(findViewById(R.id.fragment)).navigate(action);
-
-                } else if (Navigation.findNavController(findViewById(R.id.fragment)).getCurrentDestination().getLabel().equals("fragment_main")){
-                    MainFragmentDirections.ActionMainFragmentToSearchFragment action =
-                            MainFragmentDirections.actionMainFragmentToSearchFragment();
-//                    action.setSearchQuery(v.getText().toString());
-                    Navigation.findNavController(findViewById(R.id.fragment)).navigate(action);
-                }*/
             }
         });
 

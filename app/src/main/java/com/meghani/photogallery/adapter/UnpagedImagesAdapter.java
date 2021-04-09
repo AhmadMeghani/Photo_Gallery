@@ -27,13 +27,9 @@ import java.util.List;
 
 import static com.meghani.photogallery.util.Utils.ifImageExists;
 
-public class UnpagedImagesAdapter extends RecyclerView.Adapter<UnpagedImagesAdapter.UnpagedImagesAdapterVH>{
+public class UnpagedImagesAdapter extends RecyclerView.Adapter<UnpagedImagesAdapter.UnpagedImagesAdapterVH> {
     List<Image> imageList;
     public onImageClickListener onImageClickListener;
-
-    /*public UnpagedImagesAdapter(List<Image> imageList) {
-        this.imageList = imageList;
-    }*/
 
     public UnpagedImagesAdapter(List<Image> imageList, UnpagedImagesAdapter.onImageClickListener onImageClickListener) {
         this.imageList = imageList;
@@ -85,10 +81,10 @@ public class UnpagedImagesAdapter extends RecyclerView.Adapter<UnpagedImagesAdap
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(holder.binding.imageViewImage);
 
-            if(ifImageExists(imageList.get(position).getId(),holder.binding.getRoot().getContext()))
-                holder.binding.icSave.setImageDrawable(ContextCompat.getDrawable(holder.binding.getRoot().getContext(),R.drawable.ic_heart_filled));
+            if (ifImageExists(imageList.get(position).getId(), holder.binding.getRoot().getContext()))
+                holder.binding.icSave.setImageDrawable(ContextCompat.getDrawable(holder.binding.getRoot().getContext(), R.drawable.ic_heart_filled));
             else
-                holder.binding.icSave.setImageDrawable(ContextCompat.getDrawable(holder.binding.getRoot().getContext(),R.drawable.ic_heart));
+                holder.binding.icSave.setImageDrawable(ContextCompat.getDrawable(holder.binding.getRoot().getContext(), R.drawable.ic_heart));
 
         }
     }
@@ -101,6 +97,7 @@ public class UnpagedImagesAdapter extends RecyclerView.Adapter<UnpagedImagesAdap
     public class UnpagedImagesAdapterVH extends RecyclerView.ViewHolder {
 
         private SingleImageItemBinding binding;
+
         public UnpagedImagesAdapterVH(@NonNull SingleImageItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;

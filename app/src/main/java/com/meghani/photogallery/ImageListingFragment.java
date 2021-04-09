@@ -71,7 +71,7 @@ public class ImageListingFragment extends Fragment implements ImagesAdapter.onIm
             category = "";
             editorChoice = true;
         }
-        imageViewModel = new ImageViewModel(getActivity().getApplication(),"", category, editorChoice);
+        imageViewModel = new ImageViewModel(getActivity().getApplication(), "", category, editorChoice);
 
         //set recyclerview and adapter
         initRecyclerviewAndAdapter();

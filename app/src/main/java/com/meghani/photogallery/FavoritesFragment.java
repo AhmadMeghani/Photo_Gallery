@@ -1,21 +1,18 @@
 package com.meghani.photogallery;
 
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.os.Environment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.meghani.photogallery.adapter.FavoritesImagesAdapter;
 import com.meghani.photogallery.databinding.FragmentFavoritesBinding;
-import com.meghani.photogallery.databinding.FragmentImageDetailBinding;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,6 +21,7 @@ import java.util.List;
 
 public class FavoritesFragment extends Fragment {
     FragmentFavoritesBinding binding;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

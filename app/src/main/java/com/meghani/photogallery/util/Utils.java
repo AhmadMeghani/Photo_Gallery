@@ -11,21 +11,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
-import com.meghani.photogallery.R;
-import com.meghani.photogallery.databinding.SingleImageItemBinding;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -57,7 +51,7 @@ public class Utils {
             Glide.with(context)
                     .asBitmap()
                     .load(imageUrl)
-                    .into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL,Target.SIZE_ORIGINAL) {
+                    .into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
                         @Override
                         public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                             saveImage(context, resource, imageId);
@@ -68,12 +62,11 @@ public class Utils {
     }
 
 
-
     private static String saveImage(Context context, Bitmap image, int imageId) {
         String savedImagePath = null;
 
         String imageFileName = "PhotoGallery_" + imageId + ".jpg";
-        File storageDir = new File(            context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        File storageDir = new File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
                 + "/PhotoGallery");
         boolean success = true;
         if (!storageDir.exists()) {
@@ -109,8 +102,8 @@ public class Utils {
     public static boolean ifImageExists(int imageId, Context context) {
 
         String imageFileName = "PhotoGallery_" + imageId + ".jpg";
-        File storageDir = new File(            context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-                + "/PhotoGallery/"+imageFileName);
+        File storageDir = new File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+                + "/PhotoGallery/" + imageFileName);
         return storageDir.exists();
     }
 }

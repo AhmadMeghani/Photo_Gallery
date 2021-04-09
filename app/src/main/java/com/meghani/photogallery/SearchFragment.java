@@ -1,6 +1,11 @@
 package com.meghani.photogallery;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,12 +14,6 @@ import androidx.navigation.Navigation;
 import androidx.paging.PagingData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import com.meghani.photogallery.adapter.ImagesAdapter;
 import com.meghani.photogallery.adapter.ImagesLoadStateAdapter;
@@ -31,6 +30,7 @@ public class SearchFragment extends Fragment implements ImagesAdapter.onImageCli
     String searchQuery;
     ImageViewModel imageViewModel;
     ImagesAdapter imagesAdapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +52,6 @@ public class SearchFragment extends Fragment implements ImagesAdapter.onImageCli
         //set recyclerview and adapter
         initRecyclerviewAndAdapter(searchQuery);
     }
-
 
 
     public void initRecyclerviewAndAdapter(String searchQuery) {

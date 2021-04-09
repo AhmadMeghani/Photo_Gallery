@@ -22,9 +22,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.meghani.photogallery.R;
 import com.meghani.photogallery.adapter.UnpagedImagesAdapter;
 import com.meghani.photogallery.databinding.FragmentImageDetailBinding;
 import com.meghani.photogallery.models.Image;
@@ -89,16 +86,16 @@ public class ImageDetailFragment extends Fragment implements UnpagedImagesAdapte
         getImageDetails(imageId);
 
 
-        if(ifImageExists((int) imageId,getContext()))
-            binding.fabSave.setImageDrawable(ContextCompat.getDrawable(getContext(),R.drawable.ic_heart_filled_bug));
+        if (ifImageExists((int) imageId, getContext()))
+            binding.fabSave.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_heart_filled_bug));
         else
-            binding.fabSave.setImageDrawable(ContextCompat.getDrawable(getContext(),R.drawable.ic_heart_big));
+            binding.fabSave.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_heart_big));
 
         binding.fabSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.downloadImage(v.getContext(),imageLink, (int) imageId);
-                binding.fabSave.setImageDrawable(ContextCompat.getDrawable(getContext(),R.drawable.ic_heart_filled_bug));
+                Utils.downloadImage(v.getContext(), imageLink, (int) imageId);
+                binding.fabSave.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_heart_filled_bug));
             }
         });
     }
@@ -140,7 +137,6 @@ public class ImageDetailFragment extends Fragment implements UnpagedImagesAdapte
             public void onChanged(ImageResponse imageResponse) {
                 imageList.clear();
                 imageList.addAll(imageResponse.getImageList());
-//                unpagedImagesAdapter.notifyDataSetChanged();
 
                 // Create GridlayoutManger with span of count of 2
                 StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);

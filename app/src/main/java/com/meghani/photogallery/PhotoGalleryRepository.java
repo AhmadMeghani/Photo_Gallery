@@ -1,10 +1,6 @@
 package com.meghani.photogallery;
 
-import android.app.Application;
-import android.widget.Toast;
-
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import com.meghani.photogallery.api.APIClient;
 import com.meghani.photogallery.models.ImageResponse;
@@ -27,7 +23,7 @@ public class PhotoGalleryRepository {
         call.enqueue(new Callback<ImageResponse>() {
             @Override
             public void onResponse(Call<ImageResponse> call, Response<ImageResponse> response) {
-                if(response.isSuccessful())
+                if (response.isSuccessful())
                     imageResponseMutableLiveData.postValue(response.body());
             }
 
@@ -47,7 +43,7 @@ public class PhotoGalleryRepository {
         call.enqueue(new Callback<ImageResponse>() {
             @Override
             public void onResponse(Call<ImageResponse> call, Response<ImageResponse> response) {
-                if(response.isSuccessful())
+                if (response.isSuccessful())
                     similarImagesLiveData.postValue(response.body());
             }
 

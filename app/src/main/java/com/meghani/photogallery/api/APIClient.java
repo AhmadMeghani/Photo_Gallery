@@ -19,6 +19,7 @@ import static com.meghani.photogallery.util.Utils.BASE_URL;
 public class APIClient {
     // Define APIInterface
     static APIInterface apiInterface;
+
     // create retrofit instance
     public static APIInterface getAPIInterface() {
         if (apiInterface == null) {
@@ -51,6 +52,7 @@ public class APIClient {
         }
         return apiInterface;
     }
+
     //API service interface
     public interface APIInterface {
         // Define Get request with query string parameter as page number
