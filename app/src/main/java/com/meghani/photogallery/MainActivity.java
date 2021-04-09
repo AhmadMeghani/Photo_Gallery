@@ -30,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         Navigation.findNavController(findViewById(R.id.fragment)).addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                Log.i("TAG", "onDestinationChanged: ");
+                if (destination.getLabel().toString().contains("main")) {
+                    binding.backBtn.setVisibility(View.GONE);
+                    binding.searchBar.setVisibility(View.VISIBLE);
+                }
             }
         });
 

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -85,8 +86,8 @@ public class ImageListingFragment extends Fragment implements ImagesAdapter.onIm
             }
         });
 
-
     }
+
 
 
     private void initRecyclerviewAndAdapter() {
@@ -117,6 +118,8 @@ public class ImageListingFragment extends Fragment implements ImagesAdapter.onIm
         action.setImageId(imageId);
         Navigation.findNavController(getActivity().findViewById(R.id.fragment)).navigate(action);
 
+
+        getActivity().findViewById(R.id.profilePicture).setVisibility(View.GONE);
         LinearLayout headerLayout = getActivity().findViewById(R.id.headerLayout);
         headerLayout.setVisibility(View.GONE);
     }

@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -98,6 +99,12 @@ public class ImageDetailFragment extends Fragment implements UnpagedImagesAdapte
                 binding.fabSave.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_heart_filled_bug));
             }
         });
+
+        setupViews();
+    }
+
+    private void setupViews() {
+        getActivity().findViewById(R.id.headerLayout).setVisibility(View.GONE);
     }
 
     @Override
@@ -157,6 +164,7 @@ public class ImageDetailFragment extends Fragment implements UnpagedImagesAdapte
                     ImageDetailFragmentDirections.actionImageDetailFragmentToImageDetailFragment();
             action.setImageId(imageDetailId);
             Navigation.findNavController(getActivity().findViewById(R.id.fragment)).navigate(action);
+
 
             LinearLayout headerLayout = getActivity().findViewById(R.id.headerLayout);
             headerLayout.setVisibility(View.GONE);

@@ -99,13 +99,19 @@ public class SearchFragment extends Fragment implements ImagesAdapter.onImageCli
         action.setImageId(imageId);
         Navigation.findNavController(getActivity().findViewById(R.id.fragment)).navigate(action);
 
+        getActivity().findViewById(R.id.profilePicture).setVisibility(View.VISIBLE);
+
         LinearLayout headerLayout = getActivity().findViewById(R.id.headerLayout);
         headerLayout.setVisibility(View.GONE);
     }
 
     private void setupViews() {
-        EditText search_bar = getActivity().findViewById(R.id.search_bar);
+
         getActivity().findViewById(R.id.headerLayout).setVisibility(View.VISIBLE);
+        getActivity().findViewById(R.id.profilePicture).setVisibility(View.VISIBLE);
+        EditText search_bar = getActivity().findViewById(R.id.search_bar);
+        search_bar.setVisibility(View.VISIBLE);
+        search_bar.setText(searchQuery);
         search_bar.clearFocus();
         search_bar.setText("");
         getActivity().findViewById(R.id.backBtn).setVisibility(View.VISIBLE);

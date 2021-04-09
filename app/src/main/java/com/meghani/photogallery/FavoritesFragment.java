@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +40,16 @@ public class FavoritesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         showImageList();
+        setupViews();
+
+    }
+
+    private void setupViews() {
+        getActivity().findViewById(R.id.headerLayout).setVisibility(View.VISIBLE);
+        getActivity().findViewById(R.id.profilePicture).setVisibility(View.GONE);
+        EditText search_bar = getActivity().findViewById(R.id.search_bar);
+        search_bar.setVisibility(View.GONE);
+        getActivity().findViewById(R.id.backBtn).setVisibility(View.VISIBLE);
 
     }
 

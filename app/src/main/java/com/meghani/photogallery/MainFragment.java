@@ -50,6 +50,7 @@ public class MainFragment extends Fragment {
     }
 
     private void setupViews() {
+        getActivity().findViewById(R.id.profilePicture).setVisibility(View.VISIBLE);
         EditText search_bar = getActivity().findViewById(R.id.search_bar);
         getActivity().findViewById(R.id.headerLayout).setVisibility(View.VISIBLE);
         search_bar.clearFocus();
