@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_16sdp"
+    android:layout_marginStart="@dimen/_7sdp"
+    android:layout_marginEnd="@dimen/_7sdp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageViewImage"
+        android:layout_width="match_parent"
+        android:padding="1dp"
+        android:transitionName="img"
+        android:theme="@style/roundedImageView"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true" />
+
+
+    <ImageView
+        android:id="@+id/ic_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        android:src="@drawable/ic_heart"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"/>
+
+    <ProgressBar
+        android:id="@+id/prograss_load_photo"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

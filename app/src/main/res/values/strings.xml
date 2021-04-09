@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Photo Gallery</string>
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+</resources>
